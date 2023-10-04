@@ -8,7 +8,7 @@ view: customers_md {
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Account Number Fiscal Address Fiskn" in Explore.
-  
+
   fields_hidden_by_default: yes
 
   dimension: key {
@@ -16,7 +16,7 @@ view: customers_md {
     primary_key: yes
     sql: CONCAT(${client_mandt},${customer_number_kunnr});;
   }
-  
+
   dimension: account_number_fiscal_address_fiskn {
     type: string
     sql: ${TABLE}.AccountNumberFiscalAddress_FISKN ;;

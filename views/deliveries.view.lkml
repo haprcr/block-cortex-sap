@@ -8,7 +8,7 @@ view: deliveries {
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Account Assignment Category Knttp" in Explore.
-  
+
   fields_hidden_by_default: yes
 
   dimension: key {
@@ -16,28 +16,28 @@ view: deliveries {
     primary_key: yes
     sql: CONCAT(${client_mandt},${delivery_vbeln},${delivery_item_posnr});;
   }
-  
+
   dimension: OnTimeDelivery {
     type: string
     sql: IF( ${date__proof_of_delivery___podat_date}<=${delivery_date_lfdat_date},
-    'DeliveredOnTime',
-    'NotDeliveredOnTime') ;;
+          'DeliveredOnTime',
+          'NotDeliveredOnTime') ;;
     hidden: no
   }
 
   dimension: InFullDelivery {
     type: string
     sql: IF(${sales_orders.cumulative_order_quantity_kwmeng}=${actual_quantity_delivered_in_sales_units_lfimg},
-    'DeliveredInFull',
-    'NotDeliverdInFull') ;;
+          'DeliveredInFull',
+          'NotDeliverdInFull') ;;
     hidden: no
   }
 
   dimension: LateDeliveries {
     type: string
     sql: IF( ${date__proof_of_delivery___podat_date}>${delivery_date_lfdat_date},
-    'Delayed',
-    'NotDelayed') ;;
+          'Delayed',
+          'NotDelayed') ;;
     hidden: no
   }
   dimension: OnTime {
@@ -150,8 +150,8 @@ view: deliveries {
   dimension: Order_Cycle_Time {
     type: number
     sql: IF(${actual_goods_movement_date_wadat_ist_date} IS NOT NULL,
-    TIMESTAMP_DIFF(CAST(CONCAT(${date__proof_of_delivery___podat_date}, " ", ${confirmation_time_potim}) AS TIMESTAMP),
-      CAST(CONCAT(${sales_orders.creation_date_erdat_date}, " ", ${sales_orders.creation_time_erzet}) AS TIMESTAMP), DAY), NULL) ;;
+          TIMESTAMP_DIFF(CAST(CONCAT(${date__proof_of_delivery___podat_date}, " ", ${confirmation_time_potim}) AS TIMESTAMP),
+            CAST(CONCAT(${sales_orders.creation_date_erdat_date}, " ", ${sales_orders.creation_time_erzet}) AS TIMESTAMP), DAY), NULL) ;;
     hidden: no
   }
 
