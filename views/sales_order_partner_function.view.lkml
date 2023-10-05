@@ -14,7 +14,7 @@ view: sales_order_partner_function {
     primary_key: yes
     sql: CONCAT(${client_mandt},${item_posnr},${sales_document_vbeln},${partner_function_parvw});;
   }
-  
+
   dimension: address_adrnr {
     type: string
     sql: ${TABLE}.Address_ADRNR ;;
