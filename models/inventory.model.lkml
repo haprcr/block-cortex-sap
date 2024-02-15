@@ -1,10 +1,10 @@
 # Define the database connection to be used for this model.
-connection: "@{CONNECTION_NAME}"
+connection: "inventory_ecc_sd_v_5_3"
 
 # include all the views
 include: "/views/**/*.view"
 include: "/components/*.lkml"
-include: "/explores_balance_sheet/*.explore"
+# include: "/explores_balance_sheet/*.explore"
 
 # Datagroups define a caching policy for an Explore. To learn more,
 # use the Quick Help panel on the right to see documentation.
@@ -70,9 +70,5 @@ explore: inventory_by_plant {
   }
 }
 
-################################################ End of Supply Chain #################################################
 
-explore: global_currency_list_pdt {
-  hidden: yes
-  description: "Used to provide filter suggestions for Global Currency"
-}
+################################################ End of Supply Chain #################################################
