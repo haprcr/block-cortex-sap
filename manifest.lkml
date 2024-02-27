@@ -1,5 +1,6 @@
 constant: CONNECTION_NAME {
-  value: "selective_deploymnet_v_5_3_connection"
+  # value: "selective_deploymnet_v_5_3_connection"
+  value: "selective_deploymnet_v_5_3_finance"
   export: override_required
 }
 
@@ -9,7 +10,8 @@ constant: GCP_PROJECT {
 }
 
 constant: REPORTING_DATASET {
-  value: "REPORTING_5_3_f2"
+  # value: "REPORTING_5_3_f2"
+  value: "REPORTING_5_3_fi_v1"
   export: override_required
 }
 
